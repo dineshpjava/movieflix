@@ -58,5 +58,5 @@ public class MovieReviewServiceImpl implements MovieReviewService{
 			return mapper.ReviewEntityToDTO(movieReviewRepository.deleteReview(existing));
 		}
 		throw new MovieReviewNotFound("Movie review with id:" + id + " isn't found");
-}
+	}
 }

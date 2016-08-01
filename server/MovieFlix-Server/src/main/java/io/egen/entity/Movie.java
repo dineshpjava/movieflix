@@ -22,7 +22,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 	@NamedQuery(name = "Movie.findTopMovies", query = "SELECT m FROM Movie m WHERE m.type=:pType ORDER BY m.imdbRating DESC "),
 	@NamedQuery(name = "Movie.findByType", query = "SELECT m FROM Movie m WHERE m.type=:pType"),
 	@NamedQuery(name = "Movie.findByYear", query = "SELECT m FROM Movie m ORDER BY m.year DESC"),
-	@NamedQuery(name = "Movie.findByType", query = "SELECT m FROM Movie m ORDER BY m.imdbVotes DESC"),
+	@NamedQuery(name = "Movie.findByVotes", query = "SELECT m FROM Movie m ORDER BY m.imdbVotes DESC"),
 	@NamedQuery(name = "Movie.findByGenre", query = "select m from Movie m join m.genre g where g.genreName =:pGenreName)")
 	})
 public class Movie implements Comparable<Movie> {
