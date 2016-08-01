@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import io.egen.entity.Genre;
 import io.egen.entity.Movie;
 
 @Repository
@@ -39,6 +40,28 @@ public class MovieRepositoryImpl implements MovieRepository{
 	}
 
 	@Override
+	public List<Movie> findTopMovies(String type) {
+		TypedQuery<Movie> query = entityManager.createNamedQuery("Movie.findTopMovies", Movie.class);
+		query.setParameter("pType", type);
+		List<Movie> topMovies = query.getResultList();
+		return topMovies;
+	}
+
+	@Override
+	public List<Movie> findMovieByGenre(String genreName) {
+		TypedQuery<Movie> query = entityManager.createNamedQuery("Movie.findByGenre", Movie.class);
+		query.setParameter("pGenreName", genreName);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Movie> findByType(String type) {
+		TypedQuery<Movie> query = entityManager.createNamedQuery("Movie.findByType", Movie.class);
+		query.setParameter("pType", type);
+		return query.getResultList();
+	}
+	
+	@Override
 	public Movie createMovie(Movie movie) {
 		entityManager.persist(movie);
 		return movie;
@@ -54,5 +77,20 @@ public class MovieRepositoryImpl implements MovieRepository{
 	public Movie deleteMovie(Movie movie) {
 		entityManager.remove(movie);
 		return movie;
+	}
+
+	@Override
+	public Genre findGenre(String genreName) {
+		Genre genre = entityManager.find(Genre.class, genreName);
+		if(genre==null){
+			genre = createGenre(genreName);
+		}
+		return genre;
+	}
+	
+	private Genre createGenre(String genreName){
+		Genre genre = new Genre(genreName);
+		entityManager.persist(genre);
+		return genre;
 	}
 }

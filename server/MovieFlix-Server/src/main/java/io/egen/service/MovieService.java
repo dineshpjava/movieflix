@@ -2,22 +2,24 @@ package io.egen.service;
 
 import java.util.List;
 
-import io.egen.entity.Movie;
+import io.egen.DTO.MovieDTO;
 
 public interface MovieService {
 
-	public Movie findMovie(String id);
+	public MovieDTO findMovie(String id);
 	
-	public List<Movie> findAllMovies();
+	public List<MovieDTO> findAllMovies();
 	
-	public List<Movie> findTopRatedMovies();	
+	public List<MovieDTO> findMovieByGenre(String genreName);
 	
-	public List<Movie> findTopRatedSeries();	
+	public List<MovieDTO> findTopMovies(String type);
 	
-	public Movie createMovie(Movie movie);
+	public List<MovieDTO> findByType(String type);
 	
-	public Movie updateMovie(Movie movie);
+	public MovieDTO createMovie(MovieDTO movie);
 	
-	public Movie deleteMovie(String id);
+	public MovieDTO updateMovie(MovieDTO movie);
+	
+	public MovieDTO deleteMovie(String id);
 
 }
