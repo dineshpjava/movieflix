@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.egen.entity.Movie;
+import io.egen.DTO.MovieDTO;
 import io.egen.service.MovieService;
 
 @RestController
@@ -21,37 +22,43 @@ public class MovieController {
 	private MovieService movieService;
 	
 	@RequestMapping(method = RequestMethod.GET, path="/{id}")
-	public Movie findMovie(@PathVariable("id") String id){
+	public MovieDTO findMovie(@PathVariable("id") String id){
 		return movieService.findMovie(id);		
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Movie> findAllMovies(){
+	public List<MovieDTO> findAllMovies(){
 		return movieService.findAllMovies();
 	}
 
-	@RequestMapping(method = RequestMethod.GET, path="/top-movies")
-	public List<Movie> findTopRatedMovies(){
-		return movieService.findTopRatedMovies();
+	@RequestMapping(method = RequestMethod.GET, path="/genre")
+	public List<MovieDTO> findMoviesByGenre(@RequestParam(value="genreName",required=true) String genreName){
+		return movieService.findMovieByGenre(genreName);
+	}
+	
+
+	@RequestMapping(method = RequestMethod.GET, path="/top")
+	public List<MovieDTO> findAllMovies(@RequestParam(value="type",required=true) String type) {
+		return movieService.findTopMovies(type);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, path="/top-series")
-	public List<Movie> findTopRatedSeries(){
-		return movieService.findTopRatedSeries();
+	@RequestMapping(method = RequestMethod.GET, path="/type")
+	public List<MovieDTO> findByType(@RequestParam(value="type",required=true) String type) {
+		return movieService.findTopMovies(type);
 	}
-
+	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie createMovie(@RequestBody Movie movie){
+	public MovieDTO createMovie(@RequestBody MovieDTO movie){
 		return movieService.createMovie(movie);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, path="/{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie updateMovie(@RequestBody Movie movie, @PathVariable("id") String id){
+	public MovieDTO updateMovie(@RequestBody MovieDTO movie, @PathVariable("id") String id){
 		return movieService.updateMovie(movie);		
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, path="/{id}")
-	public Movie deleteMovie(@PathVariable("id") String id){
+	public MovieDTO deleteMovie(@PathVariable("id") String id){
 		return movieService.deleteMovie(id);
 	}
 }
