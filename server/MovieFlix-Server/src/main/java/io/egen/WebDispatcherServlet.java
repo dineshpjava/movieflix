@@ -16,7 +16,6 @@ public class WebDispatcherServlet extends AbstractAnnotationConfigDispatcherServ
 
 	@Override
 	protected String[] getServletMappings() {
-		System.out.println("In API..........");
 		return new String[]{"/api/*"};
 	}
 }
