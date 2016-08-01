@@ -4,12 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
+@NamedQueries({
+	@NamedQuery(name = "MovieReview.findAll", query = "SELECT r FROM MovieReview r")
+//	,@NamedQuery(name = "Movie.findByName", query = "SELECT m FROM Movie m WHERE m.title=:pTitle")
+	})
 public class MovieReview {
 
 	@Id
