@@ -1,0 +1,23 @@
+body{
+    /*background-image: url("http://feelgrafix.com/data_images/out/12/857782-movie-wallpapers.jpg");*/
+    background-image: url("http://www.hdwallpapers.in/walls/marvel_deadpool_movie-wide.jpg");
+    background-size: 100% ;
+}
+
+.container{
+    opacity: 0.85;
+}
+.container{
+    opacity: 0.85;
+}
+
+.carousel-caption{
+    color: black;
+}
+.home{
+    opacity: 0.85;
+}
+.btn-dini{
+    width: 100px;
+    background-color: tomato;
+}
