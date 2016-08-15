@@ -26,6 +26,7 @@ public class ReviewMapper {
 		movieReview.setReviewId(review.getReviewId());
 		movieReview.setComment(review.getComment());
 		movieReview.setRate(review.getRate());
+		movieReview.setCustomerName(review.getCustomerName());
 		movieReview.setMovie(movieRepository.findMovie(review.getMovieId()));
 		movieReview.setCustomer(customerRespository.findCustomer(review.getCustomerId()));
 		return movieReview;
@@ -36,6 +37,7 @@ public class ReviewMapper {
 		review.setReviewId(movieReview.getReviewId());
 		review.setRate(movieReview.getRate());
 		review.setComment(movieReview.getComment());
+		review.setCustomerName(movieReview.getCustomerName());
 		review.setMovieId(movieReview.getMovie().getId());
 		review.setCustomerId(movieReview.getCustomer().getId());
 		return review;

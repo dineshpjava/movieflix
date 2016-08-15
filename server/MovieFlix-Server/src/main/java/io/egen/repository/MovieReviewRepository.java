@@ -8,7 +8,7 @@ public interface MovieReviewRepository {
 
 	public MovieReview findOneReview(String id);
 
-	public List<MovieReview> findAllReviews();
+	public List<MovieReview> findAllReviews(String movieId);
 	
 	public MovieReview createReview(MovieReview movieReview);
 	

@@ -28,8 +28,8 @@ public class MovieReviewServiceImpl implements MovieReviewService{
 	}
 
 	@Override
-	public List<ReviewDTO> findAllReviews() {
-		return mapper.ReviewEntityToDTO(movieReviewRepository.findAllReviews());
+	public List<ReviewDTO> findAllReviews(String movieId) {
+		return mapper.ReviewEntityToDTO(movieReviewRepository.findAllReviews(movieId));
 	}
 
 	@Override

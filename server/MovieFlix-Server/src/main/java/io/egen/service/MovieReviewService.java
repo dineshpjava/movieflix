@@ -14,5 +14,5 @@ public interface MovieReviewService {
 	
 	public ReviewDTO deleteReview(String id);
 	
-	public List<ReviewDTO> findAllReviews();
+	public List<ReviewDTO> findAllReviews(String movieId);
 }

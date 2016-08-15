@@ -22,9 +22,11 @@ public class MovieReviewRepositoryImpl implements MovieReviewRepository{
 	}
 
 	@Override
-	public List<MovieReview> findAllReviews() {
-		TypedQuery<MovieReview> query = entityManager.createNamedQuery("MovieReview.findAll", MovieReview.class);
-		return query.getResultList();
+	public List<MovieReview> findAllReviews(String movieId) {
+		TypedQuery<MovieReview> query = entityManager.createNamedQuery("MovieReviews.findAll", MovieReview.class);
+		query.setParameter("pId", movieId);
+		List<MovieReview> movieReviews = query.getResultList();
+		return movieReviews;
 	}
 
 	@Override

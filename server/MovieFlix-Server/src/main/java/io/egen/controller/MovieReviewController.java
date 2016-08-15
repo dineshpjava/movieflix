@@ -20,14 +20,14 @@ public class MovieReviewController {
 		@Autowired
 		private MovieReviewService movieReviewService;
 		
-		@RequestMapping(method = RequestMethod.GET, path="/{id}")
+/*		@RequestMapping(method = RequestMethod.GET, path="/{id}")
 		public ReviewDTO findMovieReview(@PathVariable("id") String id){
 			return movieReviewService.findOneReview(id);		
 		}
-		
-		@RequestMapping(method = RequestMethod.GET)
-		public List<ReviewDTO> findAllMovieReviews(){
-			return movieReviewService.findAllReviews();
+*/		
+		@RequestMapping(method = RequestMethod.GET, path="/{id}")
+		public List<ReviewDTO> findAllMovieReviews(String movieId){
+			return movieReviewService.findAllReviews(movieId);
 		}
 
 /*		@RequestMapping(method = RequestMethod.GET, path="/top-movies")

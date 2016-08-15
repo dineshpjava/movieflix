@@ -8,6 +8,8 @@ public class ReviewDTO {
 	
 	private Integer rate;
 	
+	private String customerName;
+
 	private String movieId;
 	
 	private String customerId;
@@ -50,5 +52,13 @@ public class ReviewDTO {
 
 	public void setReviewId(String reviewId) {
 		this.reviewId = reviewId;
+	}
+	
+	public String getCustomerName() {
+		return this.customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 }

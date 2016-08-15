@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table
 @NamedQueries({
-	@NamedQuery(name = "MovieReview.findAll", query = "SELECT r FROM MovieReview r")
+	@NamedQuery(name = "MovieReviews.findAll", query = "SELECT r FROM MovieReview r join r.movie m where m.id=:pId")
 //	,@NamedQuery(name = "Movie.findByName", query = "SELECT m FROM Movie m WHERE m.title=:pTitle")
 	})
 public class MovieReview {
@@ -33,6 +33,8 @@ public class MovieReview {
 	@ManyToOne
 	private Customer customer;
 
+	private String customerName;
+	
 	public String getReviewId() {
 		return reviewId;
 	}
@@ -72,4 +74,13 @@ public class MovieReview {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+	
+	public String getCustomerName() {
+		return this.customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
 }
