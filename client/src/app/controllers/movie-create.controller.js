@@ -27,7 +27,7 @@
             movieService
                 .addMovie(addMovieVm.newMovie)
                 .then(function(data) {
-                    $location.path('/home');
+                    $location.path('/movies');
                 }, function(error) {
                     console.log(error);
                 })
