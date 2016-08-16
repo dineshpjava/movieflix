@@ -1,0 +1,16 @@
+img {
+    min-width: 50px;
+    max-width: 150px;
+}
+
+.details{
+    margin: 2% 12%;
+    padding: 10px;
+    border: 2px;
+    border: solid black;
+}
+
+footer {
+    padding-top: 10%;
+    margin:auto;
+}
