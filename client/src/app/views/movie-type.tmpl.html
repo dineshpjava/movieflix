@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Movies List</h2>
+    <div>
+        <input type="search" ng-model="moviesVm.searchText.title" placeholder="Search goes here..." class="form-control">
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th ng-click="moviesVm.changeSort('title')">Title</th>
+            <th ng-click="moviesVm.changeSort('plot')">Plot</th>
+            <th ng-click="moviesVm.changeSort('director')">Director</th>
+            <th ng-click="moviesVm.changeSort('actors')">Actors</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="movie in moviesVm.movies | filter:moviesVm.searchText | orderBy:moviesVm.sorter.by:moviesVm.sorter.reverse">
+            <td><a ng-href="#/movies/{{movie.id}}"><img ng-src="{{movie.poster}}"></a></td>
+            <td>{{movie.title}}</td>
+            <td><p>{{movie.plot}}</p></td>
+            <td>{{movie.director}}</td>
+            <td>{{movie.actors}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
