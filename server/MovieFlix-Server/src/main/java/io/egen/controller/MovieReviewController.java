@@ -26,7 +26,7 @@ public class MovieReviewController {
 		}
 */		
 		@RequestMapping(method = RequestMethod.GET, path="/{id}")
-		public List<ReviewDTO> findAllMovieReviews(String movieId){
+		public List<ReviewDTO> findAllMovieReviews(@PathVariable("id") String movieId){
 			return movieReviewService.findAllReviews(movieId);
 		}
 

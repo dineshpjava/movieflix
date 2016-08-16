@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import io.egen.DTO.ReviewDTO;
 import io.egen.entity.MovieReview;
-import io.egen.repository.CustomerRespository;
 import io.egen.repository.MovieRepository;
 
 @Component
@@ -17,10 +16,6 @@ public class ReviewMapper {
 	@Autowired
 	private MovieRepository movieRepository;
 	
-	@Autowired
-	private CustomerRespository customerRespository;
-
-	
 	public MovieReview ReviewDTOtoEntity(ReviewDTO review){
 		MovieReview movieReview = new MovieReview();
 		movieReview.setReviewId(review.getReviewId());
@@ -28,7 +23,6 @@ public class ReviewMapper {
 		movieReview.setRate(review.getRate());
 		movieReview.setCustomerName(review.getCustomerName());
 		movieReview.setMovie(movieRepository.findMovie(review.getMovieId()));
-		movieReview.setCustomer(customerRespository.findCustomer(review.getCustomerId()));
 		return movieReview;
 	}
 
@@ -39,7 +33,6 @@ public class ReviewMapper {
 		review.setComment(movieReview.getComment());
 		review.setCustomerName(movieReview.getCustomerName());
 		review.setMovieId(movieReview.getMovie().getId());
-		review.setCustomerId(movieReview.getCustomer().getId());
 		return review;
 	}
 	

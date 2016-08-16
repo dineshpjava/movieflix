@@ -30,9 +30,6 @@ public class MovieReview {
 	@ManyToOne
 	private Movie movie;
 	
-	@ManyToOne
-	private Customer customer;
-
 	private String customerName;
 	
 	public String getReviewId() {
@@ -65,14 +62,6 @@ public class MovieReview {
 
 	public void setMovie(Movie movie) {
 		this.movie = movie;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
 	}
 	
 	public String getCustomerName() {

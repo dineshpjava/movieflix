@@ -12,8 +12,6 @@ public class ReviewDTO {
 
 	private String movieId;
 	
-	private String customerId;
-
 	public String getComment() {
 		return comment;
 	}
@@ -36,14 +34,6 @@ public class ReviewDTO {
 
 	public void setMovieId(String movieId) {
 		this.movieId = movieId;
-	}
-
-	public String getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
 	}
 
 	public String getReviewId() {
