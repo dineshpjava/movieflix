@@ -4,14 +4,13 @@
   angular.module('movieflix')
     .controller('MoviesController', MoviesController);
 
-  MoviesController.$inject = ['movieService', '$location'];
+  MoviesController.$inject = ['movieService', '$route'];
 
-  function MoviesController(movieService, $location) {
+  function MoviesController(movieService, $route) {
     var moviesVm = this;
 
     moviesVm.changeSort = changeSort;
     moviesVm.deleteMovie = deleteMovie;
-    moviesVm.updateMovie = updateMovie;
 
     init();
 
@@ -38,14 +37,11 @@
       movieService
           .deleteMovie(id)
           .then(function(movies) {
-            $location.path('/home');
+            $route.reload();
+            //$location.path('/home');
           }, function(error) {
             console.log(error);
           });
-    }
-
-    function updateMovie() {
-
     }
 
     function changeSort(prop) {

@@ -7,7 +7,6 @@
     .run(moduleRun);
 
 
-
     moduleConfig.$inject = ['$routeProvider', '$provide', 'authProvider', '$httpProvider', 'jwtInterceptorProvider'];
     function moduleConfig($routeProvider, $provide, authProvider, $httpProvider, jwtInterceptorProvider) {
 
@@ -40,7 +39,8 @@
       }
       $provide.factory('redirect', redirect);
       $httpProvider.interceptors.push('redirect');
-     */
+       */
+
       $httpProvider.interceptors.push('jwtInterceptor');
 
       $routeProvider

@@ -15,7 +15,8 @@
     "angular-storage": "^0.5.0",
     "auth0-angular": "^4.1.0",
     "angular-material": "^1.0.9",
-    "auth0-lock": "^9.0.0"
+    "auth0-lock": "^9.0.0",
+    "a0-angular-storage": "^0.0.15"
   },
   "overrides": {
     "bootstrap": {
@@ -29,8 +30,8 @@
         "dist/fonts/glyphicons-halflings-regular.woff2"
       ]
     }
-},
-  "resolutions":{
+  },
+  "resolutions": {
     "angular": "^1.5.8"
   }
 }

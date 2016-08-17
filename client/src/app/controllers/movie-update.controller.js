@@ -17,6 +17,7 @@
         function init() {
             console.log('in UpdateMovieController');
             updateMovieVm.id = $routeParams.id;
+
             movieService
                 .getMovieById(updateMovieVm.id)
                 .then(function (movie){
@@ -24,7 +25,6 @@
                 }, function (error) {
                     console.log(error);
                 });
-
         }
 
         function editMovie() {

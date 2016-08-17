@@ -4,9 +4,9 @@
   angular.module('movieflix')
     .controller('MovieDetailController', MovieDetailController);
 
-  MovieDetailController.$inject = ['movieService', 'reviewService', '$routeParams', '$location'];
+  MovieDetailController.$inject = ['movieService', 'reviewService', '$routeParams', '$route'];
 
-  function MovieDetailController(movieService, reviewService, $routeParams, $location) {
+  function MovieDetailController(movieService, reviewService, $routeParams, $route) {
     var movieDetailVm = this;
 
     movieDetailVm.addReview = addReview;
@@ -42,7 +42,8 @@
       reviewService
           .addReview(movieDetailVm.newReview)
           .then(function(data) {
-              $location.path('/movies');
+              $route.reload();
+              //$location.path('/movies');
           }, function(error) {
             console.log(error);
           })
@@ -53,7 +54,8 @@
         reviewService
             .deleteReview(id)
             .then(function(data) {
-                $location.path('/movies');
+                $route.reload();
+                //$location.path('/movies');
             }, function(error) {
                 console.log(error);
             })

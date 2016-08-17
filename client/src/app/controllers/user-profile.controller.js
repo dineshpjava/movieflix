@@ -13,7 +13,7 @@
         function init() {
             console.log('UserProfileController');
             userVm.profile = JSON.parse(localStorage.getItem('profile'));
-            console.dir(userVm.profile);
+            // console.dir(userVm.profile);
         }
     }
 })();
