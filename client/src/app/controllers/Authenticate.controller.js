@@ -6,20 +6,29 @@
 
     AuthController.$inject = ['auth', '$location'];
 
-    function AuthController(auth, $location, $rootScope) {
+    function AuthController(auth, $location) {
         var headVm = this;
 
         headVm.login = login;
         headVm.logout = logout;
         headVm.auth = auth;
+        headVm.init = init;
+
+        init();
+
+        function init() {
+            headVm.profile = JSON.parse(localStorage.getItem('profile'));
+        }
 
         function login() {
             auth
                 .signin({}, function(profile,token) {
                     localStorage.setItem('profile',JSON.stringify(profile));
                     localStorage.setItem('token',token);
+                    // store.set('profile',JSON.stringify(profile));
+                    // store.set('token',token);
                     $location.path('/movies');
-                    headVm.profile = JSON.parse(localStorage.getItem('profile'));
+                    console.dir(headVm.profile);
                 }, function(error){
                     console.log(error);
                 });
