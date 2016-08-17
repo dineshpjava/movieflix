@@ -39,7 +39,7 @@
         <textarea class="form-control" rows="5" style="margin-top: 5px" id="comment" name="comment" placeholder="comment" ng-model="movieVm.newReview.comment"></textarea>
       </div>
       <div class="form-group navbar-static-bottom col-sm-12 col-lg-12">
-        <button type="submit" ng-click="movieVm.addReview()" class="btn btn-primary btn-danger" style="margin-left:30%">Submit</button>
+        <button type="submit" ng-click="movieVm.addReview()" class="btn btn-primary btn-primary" style="margin-left:30%">Submit</button>
       </div>
     </div>
   <div class="col-sm-6 col-lg-8">
@@ -58,7 +58,7 @@
           <td>{{review.customerName}}</td>
           <td><p>{{review.comment}}</p></td>
           <td>{{review.rate}}</td>
-          <td ng-if=movieVm.profile.app_metadata.admin><button type="submit" ng-click="movieVm.deleteReview(review.reviewId)" class="btn btn-default">Delete <span class=" glyphicon glyphicon-remove"></span></button></td>
+          <td ng-if=movieVm.profile.app_metadata.admin><button type="submit" ng-click="movieVm.deleteReview(review.reviewId)" class="btn btn-danger">Delete <span class=" glyphicon glyphicon-remove"> </span></button></td>
         </tr>
       </tbody>
     </table>

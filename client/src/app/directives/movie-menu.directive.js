@@ -5,6 +5,7 @@
         .module('movieflix')
         .directive('movieMenu', movieMenu);
 
+
     function movieMenu() {
         var directive = {
             templateUrl: 'app/views/movie-menu.tmpl.html',

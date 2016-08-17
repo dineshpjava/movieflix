@@ -19,6 +19,7 @@
                     localStorage.setItem('profile',JSON.stringify(profile));
                     localStorage.setItem('token',token);
                     $location.path('/movies');
+                    headVm.profile = JSON.parse(localStorage.getItem('profile'));
                 }, function(error){
                     console.log(error);
                 });
