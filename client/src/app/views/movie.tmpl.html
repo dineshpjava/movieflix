@@ -25,13 +25,21 @@
     </thead>
     <tbody>
     <tr ng-repeat="movie in moviesVm.movies | filter:moviesVm.searchText | orderBy:moviesVm.sorter.by:moviesVm.sorter.reverse">
-      <td><a ng-href="#/movies/{{movie.id}}"><img ng-src="{{movie.poster}}"></a></td>
-      <td>{{movie.title}}</td>
-      <td><p>{{movie.plot}}</p></td>
-      <td>{{movie.imdbRating}}</td>
-      <td>{{movie.imdbVotes}}</td>
-      <td>{{movie.released}}</td>
-      <td ng-if=moviesVm.profile.app_metadata.admin class=" col-lg-2"><a href="#/updatemovie/{{movie.id}}" class="btn btn-default" style="background-color: black;color: white">Update</a>
+      <td>
+          <div class="hovereffect">
+              <img class="img-rounded" ng-src="{{movie.poster}}">
+            <div class="overlay">
+              <h2>{{movie.title}}</h2>
+              <a class="info" ng-href="#/movies/{{movie.id}}">details</a>
+            </div>
+          </div>
+      </td>
+      <td class="col-lg-1">{{movie.title}}</td>
+      <td class="col-lg-4"><p>{{movie.plot}}</p></td>
+      <td class="col-lg-1">{{movie.imdbRating}}</td>
+      <td class="col-lg-1">{{movie.imdbVotes}}</td>
+      <td class="col-lg-1">{{movie.released}}</td>
+      <td ng-if=moviesVm.profile.app_metadata.admin class="col-lg-2"><a href="#/updatemovie/{{movie.id}}" class="btn btn-default" style="background-color: black;color: white">Update</a>
       <button ng-click="moviesVm.deleteMovie(movie.id)" class="btn btn-danger">Delete <span class=" glyphicon glyphicon-remove"></span></button>
       </td>
     </tr>
