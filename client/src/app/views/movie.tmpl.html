@@ -31,7 +31,7 @@
       <td>{{movie.imdbRating}}</td>
       <td>{{movie.imdbVotes}}</td>
       <td>{{movie.released}}</td>
-      <td ng-if=moviesVm.profile.app_metadata.admin class=" col-lg-2"><a href="#/updatemovie/{{movie.id}}" class="btn btn-default">Update</a>
+      <td ng-if=moviesVm.profile.app_metadata.admin class=" col-lg-2"><a href="#/updatemovie/{{movie.id}}" class="btn btn-default" style="background-color: black;color: white">Update</a>
       <button ng-click="moviesVm.deleteMovie(movie.id)" class="btn btn-danger">Delete <span class=" glyphicon glyphicon-remove"></span></button>
       </td>
     </tr>
