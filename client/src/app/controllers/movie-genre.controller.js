@@ -16,6 +16,7 @@
         function init() {
             console.log('MovieGenreController');
 
+            moviesVm.profile = JSON.parse(localStorage.getItem('profile'));
             moviesVm.sorter = {
                 by: 'title',
                 reverse: false
