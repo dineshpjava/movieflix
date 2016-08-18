@@ -55,12 +55,12 @@
         controllerAs: 'movieVm'
       })
       .when('/movies/type/:type', {
-        templateUrl: 'app/views/movie-type.tmpl.html',
+        templateUrl: 'app/views/movie.tmpl.html',
         controller: 'MovieTypeController',
         controllerAs: 'moviesVm'
        })
       .when('/movies/genre/:genre', {
-        templateUrl: 'app/views/movie-genre.tmpl.html',
+        templateUrl: 'app/views/movie.tmpl.html',
         controller: 'MovieGenreController',
         controllerAs: 'moviesVm'
       })
@@ -74,25 +74,15 @@
         controller: 'UpdateMovieController',
         controllerAs: 'updateMovieVm'
       })
-      .when('/login', {
-        templateUrl: 'app/views/user-home.tmpl.html',
-        controller: 'UserLoginController',
-        controllerAs: 'userVm'
+      .when('/profile', {
+          templateUrl: 'app/views/user-profile.tmpl.html',
+          controller: 'UserProfileController',
+          controllerAs: 'userVm'
       })
-        .when('/signup', {
-            templateUrl: 'app/views/user-signup.tmpl.html',
-            controller: 'UserSignController',
-            controllerAs: 'userVm'
-        })
-          .when('/profile', {
-              templateUrl: 'app/views/user-profile.tmpl.html',
-              controller: 'UserProfileController',
-              controllerAs: 'userVm'
-          })
-        .when('/home', {
-            templateUrl: 'app/views/home.tmpl.html'
-        })
-        .otherwise({
+      .when('/home', {
+        templateUrl: 'app/views/home.tmpl.html'
+      })
+      .otherwise({
         redirectTo: '/home'
       });
   }
