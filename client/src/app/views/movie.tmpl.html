@@ -25,7 +25,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="movie in moviesVm.movies | filter:moviesVm.searchText | orderBy:moviesVm.sorter.by:moviesVm.sorter.reverse">
-      <td>
+      <td class="col-lg-2">
           <div class="hovereffect">
               <img class="img-rounded" ng-src="{{movie.poster}}">
             <div class="overlay">
