@@ -18,6 +18,7 @@
 
         function init() {
             headVm.profile = JSON.parse(localStorage.getItem('profile'));
+            console.log(headVm.profile);
         }
 
         function login() {
@@ -25,6 +26,7 @@
                 .signin({}, function(profile,token) {
                     localStorage.setItem('profile',JSON.stringify(profile));
                     localStorage.setItem('token',token);
+                    headVm.profile = JSON.parse(localStorage.getItem('profile'));
                     // store.set('profile',JSON.stringify(profile));
                     // store.set('token',token);
                     $location.path('/movies');
