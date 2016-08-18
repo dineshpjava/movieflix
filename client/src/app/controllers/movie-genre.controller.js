@@ -4,12 +4,13 @@
     angular.module('movieflix')
         .controller('MovieGenreController', MovieGenreController);
 
-    MovieGenreController.$inject = ['movieService', '$routeParams'];
+    MovieGenreController.$inject = ['movieService', '$routeParams', '$route'];
 
-    function MovieGenreController(movieService, routeParams) {
+    function MovieGenreController(movieService, routeParams, $route) {
         var moviesVm = this;
 
         moviesVm.changeSort = changeSort;
+        moviesVm.deleteMovie = deleteMovie;
 
         init();
 
@@ -26,6 +27,18 @@
                 .getMoviesByGenre(routeParams.genre)
                 .then(function(movies) {
                     moviesVm.movies = movies;
+                }, function(error) {
+                    console.log(error);
+                });
+        }
+
+        function deleteMovie(id) {
+            console.log("delete in controller")
+            movieService
+                .deleteMovie(id)
+                .then(function(movies) {
+                    $route.reload();
+                    //$location.path('/home');
                 }, function(error) {
                     console.log(error);
                 });
