@@ -33,7 +33,7 @@
             movieService
                 .editMovie(updateMovieVm.updateMovie)
                 .then(function(data) {
-                    $location.path('/home');
+                    $location.path('/movies');
                 }, function(error) {
                     console.log(error);
                 })
