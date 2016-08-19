@@ -4,9 +4,9 @@
   angular.module('movieflix')
     .controller('MovieDetailController', MovieDetailController);
 
-  MovieDetailController.$inject = ['movieService', 'reviewService', '$routeParams', '$route'];
+  MovieDetailController.$inject = ['movieService', 'reviewService', '$routeParams', '$route', '$anchorScroll'];
 
-  function MovieDetailController(movieService, reviewService, $routeParams, $route) {
+  function MovieDetailController(movieService, reviewService, $routeParams, $route, $anchorScroll) {
     var movieDetailVm = this;
 
     movieDetailVm.addReview = addReview;
@@ -23,6 +23,7 @@
         .getMovieById($routeParams.id)
         .then(function (movie){
           movieDetailVm.movie = movie;
+          $anchorScroll()
         }, function (error) {
           console.log(error);
         });
