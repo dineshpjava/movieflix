@@ -1,0 +1,99 @@
+<form class="container well" name="movieForm" ng-submit="updateMovieVm.editMovie()" novalidate>
+    <h3 style="color: orangered">Update the Movie: "{{updateMovieVm.updateMovie.title}}"</h3>
+    <div class="form-group col-md-6 col-lg-6">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" ng-value="updateMovieVm.updateMovie.title" ng-model="updateMovieVm.updateMovie.title" required>
+        <div ng-messages="movieForm.title.$error" ng-if="movieForm.title.$dirty">
+            <p ng-message="required" class="error">Title is required</p>
+        </div>
+    </div>
+    <div class="form-group col-md-6 col-lg-6">
+        <label for="title">poster-link</label>
+        <input type="text" class="form-control" id="poster" name="poster" ng-value="updateMovieVm.updateMovie.poster" ng-model="updateMovieVm.updateMovie.poster">
+    </div>
+    <div class="form-group col-md-6 col-lg-6">
+        <label for="language">Language</label>
+        <input type="text" class="form-control" id="language" name="language" ng-value="updateMovieVm.updateMovie.language" ng-model="updateMovieVm.updateMovie.language">
+    </div>
+    <div class="form-group col-md-6 col-lg-6">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" id="type" name="type" ng-value="updateMovieVm.updateMovie.type" ng-model="updateMovieVm.updateMovie.type" required>
+        <div ng-messages="movieForm.type.$error" ng-if="movieForm.type.$dirty">
+            <p ng-message="required" class="error">Type is required</p>
+        </div>
+    </div>
+    <div class="form-group col-md-6 col-lg-6">
+        <label for="year">Year</label>
+        <input type="number" class="form-control" id="year" name="year" ng-value="updateMovieVm.updateMovie.year" placeholder="year(only numbers)" ng-model="updateMovieVm.updateMovie.year" required>
+        <div ng-messages="movieForm.year.$error" ng-if="movieForm.year.$dirty">
+            <p ng-message="required" class="error">Year is required</p>
+        </div>
+    </div>
+    <div class="form-group col-md-6 col-lg-6">
+        <label for="released">Date</label>
+        <input type="text" class="form-control" id="released" name="released" ng-value="updateMovieVm.updateMovie.released" ng-model="updateMovieVm.updateMovie.released" required>
+        <div ng-messages="movieForm.released.$error" ng-if="movieForm.released.$dirty">
+            <p ng-message="required" class="error">Released date is required</p>
+        </div>
+    </div>
+    <div class="form-group col-md-6 col-lg-6">
+        <label for="runtime">Runtime</label>
+        <input type="number" class="form-control" id="runtime" name="runtime" ng-value="updateMovieVm.updateMovie.runtime" placeholder="runtime in mins(only numbers)" ng-model="updateMovieVm.updateMovie.runtime" required>
+        <div ng-messages="movieForm.runtime.$error" ng-if="movieForm.runtime.$dirty">
+            <p ng-message="required" class="error">Runtime is required</p>
+        </div>
+    </div>
+    <!--
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="genre">Genre</label>
+            <input type="text" class="form-control" id="genre" name="genre" placeholder="Comedy, Thriller, Action, Sci-fi, etc" ng-model="addMovieVm.genre" required>
+            <div ng-messages="movieForm.genre.$error" ng-if="moviesVm.genre.$dirty">
+                <p ng-message="required" class="error">Runtime is required</p>
+            </div>
+        </div>
+    -->
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="director">Director</label>
+            <input type="text" class="form-control" id="director" name="director" ng-value="updateMovieVm.updateMovie.director" ng-model="updateMovieVm.updateMovie.director" required>
+            <div ng-messages="movieForm.director.$error" ng-if="moviesVm.director.$dirty">
+                <p ng-message="required" class="error">Director is required</p>
+            </div>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="actors">Actors</label>
+            <input type="text" class="form-control" id="actors" name="actors" ng-value="updateMovieVm.updateMovie.actors" ng-model="updateMovieVm.updateMovie.actors" required>
+            <div ng-messages="movieForm.actors.$error" ng-if="moviesVm.actors.$dirty">
+                <p ng-message="required" class="error">Actors is required</p>
+            </div>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="writer">Writer</label>
+            <input type="text" class="form-control" id="writer" name="writer" ng-value="updateMovieVm.updateMovie.writer" ng-model="updateMovieVm.updateMovie.writer" required>
+            <div ng-messages="movieForm.writer.$error" ng-if="moviesVm.writer.$dirty">
+                <p ng-message="required" class="error">Writer is required</p>
+            </div>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="imdbRating">imdb Rating</label>
+            <input type="number" class="form-control" id="imdbRating" name="imdbRating" ng-value="updateMovieVm.updateMovie.imdbRating" placeholder="(only numbers/decimal)" ng-model="updateMovieVm.updateMovie.imdbRating" required>
+            <div ng-messages="movieForm.imdbRating.$error" ng-if="moviesVm.imdbRating.$dirty">
+                <p ng-message="required" class="error">imdbRating is required</p>
+            </div>
+        </div>
+        <div class="form-group col-md-6 col-lg-6">
+            <label for="imdbVotes">imdb votes</label>
+            <input type="number" class="form-control" id="imdbVotes" name="imdbVotes" ng-value="updateMovieVm.updateMovie.imdbVotes" placeholder="(only numbers)" ng-model="updateMovieVm.updateMovie.imdbVotes" required>
+            <div ng-messages="movieForm.imdbVotes.$error" ng-if="moviesVm.imdbVotes.$dirty">
+                <p ng-message="required" class="error">imdbVotes is required</p>
+            </div>
+        </div>
+        <div class="form-group col-md-6 col-lg-8" style="display: block">
+            <label for="plot">plot</label>
+            <textarea class="form-control" rows="5" id="plot" name="enter plot here" ng-value="updateMovieVm.movie.plot" ng-model="updateMovieVm.updateMovie.plot"></textarea>
+        </div>
+
+    <div class="form-group navbar-static-bottom">
+        <button type="submit" class="btn btn-primary" style="margin-left:30%">Update</button>
+        <a type="submit" href="#/movies" class="btn btn-primary" style="margin-left:3%" >Cancel</a>
+    </div>
+</form>

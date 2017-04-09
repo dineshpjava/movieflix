@@ -10,7 +10,6 @@
 **/.metadata
 **/Servers
 **/RemoteSystemsTempFiles
-
 **/target/*
 
 **/.recommenders
@@ -18,3 +17,7 @@
 **/.classpath
 server/MovieFlix-Server/.gitignore
 server/MovieFlix-Server/src/main/java/io/egen/utility/IMDBRatingComparator.java
+**/.classpath
+**/.recommenders
+**/.project
+**/target/*

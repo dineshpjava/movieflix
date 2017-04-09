@@ -1,0 +1,18 @@
+<div class="container jumbotron" style="border-width: 2px ;border: solid black; margin: 3px; padding: 5px">
+    <h2 style="color: red">In user's Profile</h2>
+
+    <form class="form-group" >
+        <div class="col-sm-12 col-lg-6">
+            <p><strong>First Name</strong>: {{userVm.profile.user_metadata.firstName}}</p>
+            <p><strong>Last Name</strong>: {{userVm.profile.user_metadata.lastName}}</p>
+            <p><strong>email</strong>: {{userVm.profile.email}}</p>
+            <p><strong>Address</strong>: {{userVm.profile.user_metadata.address}}</p>
+            <p><strong>Admin/User</strong>: <span ng-if=userVm.profile.app_metadata.admin>Admin</span> <span ng-if=!userVm.profile.app_metadata.admin>User</span></p>
+            <p><strong>user ID</strong>: {{userVm.profile.user_id}}</p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <img class="img-responsive" ng-src="{{userVm.profile.picture}}">
+            <!--<img class="img-responsive" style="max-width:400px" src="http://feelgrafix.com/data_images/out/12/857782-movie-wallpapers.jpg">-->
+        </div>
+    </form>
+</div>

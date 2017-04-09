@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Movies List</h2>
+  <ul class="nav nav-pills">
+    <!--<input type="search" ng-model="moviesVm.searchText.title" placeholder="Search goes here..." class="form-control">-->
+    <li>
+      <div class="input-group">
+        <input type="text" ng-model="moviesVm.searchText.title" placeholder="Search goes here..." class="form-control">
+        <span class="input-group-addon" id="basic-addon2" style="width: 25%">Search Movies</span>
+      </div>
+    </li>
+    <li ng-if=moviesVm.profile.app_metadata.admin><a style="margin-left: 10px" href="#/createmovie/" class="btn btn-info">Add Movie</a></li>
+  </ul>
+  </span>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th ng-click="moviesVm.changeSort('title')">Title</th>
+      <th ng-click="moviesVm.changeSort('plot')">Plot</th>
+      <th ng-click="moviesVm.changeSort('imdbRating')">imdbRating</th>
+      <th ng-click="moviesVm.changeSort('imdbVotes')">imdbVotes</th>
+      <th ng-click="moviesVm.changeSort('year')">Release</th>
+      <th ng-if=moviesVm.profile.app_metadata.admin>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="movie in moviesVm.movies | filter:moviesVm.searchText | orderBy:moviesVm.sorter.by:moviesVm.sorter.reverse">
+      <td class="col-lg-2">
+          <div class="hovereffect">
+              <img class="img-rounded" ng-src="{{movie.poster}}">
+            <div class="overlay">
+              <h2>{{movie.title}}</h2>
+              <a class="info" ng-href="#/movies/{{movie.id}}">details</a>
+            </div>
+          </div>
+      </td>
+      <td class="col-lg-1">{{movie.title}}</td>
+      <td class="col-lg-4"><p>{{movie.plot}}</p></td>
+      <td class="col-lg-1">{{movie.imdbRating}}</td>
+      <td class="col-lg-1">{{movie.imdbVotes}}</td>
+      <td class="col-lg-1">{{movie.released}}</td>
+      <td ng-if=moviesVm.profile.app_metadata.admin class="col-lg-2"><a href="#/updatemovie/{{movie.id}}" class="btn btn-default" style="background-color: black;color: white">Edit <span class=" glyphicon glyphicon-edit"></span></a>
+      <button ng-click="moviesVm.deleteMovie(movie.id)" class="btn btn-danger">Delete <span class=" glyphicon glyphicon-remove"></span></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
